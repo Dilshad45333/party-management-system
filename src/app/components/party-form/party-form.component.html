@@ -1,0 +1,26 @@
+<div class="party-form-container">
+    <form [formGroup]="form" (ngSubmit)="saveParty()" class="party-form">
+      <mat-form-field  appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" [(ngModel)]="party.name"   required>
+        <mat-error *ngIf="form.controls['name']?.invalid && (form.controls['name']?.dirty || form.controls['name']?.touched)">
+            Name is required
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+        <mat-error *ngIf="form.controls['description']?.invalid && (form.controls['description']?.dirty || form.controls['description']?.touched)">
+            Description is required
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Response</mat-label>
+        <textarea matInput formControlName="response"></textarea>
+        <mat-error *ngIf="form.controls['response']?.invalid && (form.controls['response']?.dirty || form.controls['response']?.touched)">
+            Response is required
+          </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>   
+     </form>
+  </div>

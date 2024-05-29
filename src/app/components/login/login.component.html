@@ -1,0 +1,24 @@
+<div class="login-container">
+    <form (ngSubmit)="login()" class="login-form" [formGroup]="form">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="username" name="username" required formControlName="username">
+        <mat-error *ngIf="form.controls['username']?.invalid && (form.controls['username']?.dirty || form.controls['username']?.touched)">
+            Username is required
+          </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" name="password" matInput [type]="hide ? 'password' : 'text'" required formControlName="password">
+        <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.controls['password']?.invalid && (form.controls['password']?.dirty || form.controls['password']?.touched)">
+            password is required
+          </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Login</button>
+    </form>
+  </div>
+  <router-outlet></router-outlet>

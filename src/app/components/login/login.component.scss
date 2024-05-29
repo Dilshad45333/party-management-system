@@ -1,0 +1,20 @@
+.login-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Use the full height of the viewport */
+  }
+  .login-form {
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center horizontally within the column */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .login-form mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
